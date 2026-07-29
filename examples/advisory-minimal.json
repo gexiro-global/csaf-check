@@ -1,0 +1,48 @@
+{
+  "document": {
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "title": "Example Widgets Ltd - ExampleApp 1.2.3 input validation issue",
+    "publisher": {
+      "category": "vendor",
+      "name": "Example Widgets Ltd",
+      "namespace": "https://example.com"
+    },
+    "tracking": {
+      "id": "EXAMPLE-2024-0001",
+      "status": "final",
+      "version": "1",
+      "initial_release_date": "2024-01-15T09:00:00Z",
+      "current_release_date": "2024-01-15T09:00:00Z",
+      "revision_history": [
+        {
+          "date": "2024-01-15T09:00:00Z",
+          "number": "1",
+          "summary": "Initial public release."
+        }
+      ]
+    }
+  },
+  "product_tree": {
+    "full_product_names": [
+      {
+        "product_id": "EXAMPLEAPP-1.2.3",
+        "name": "Example Widgets Ltd ExampleApp 1.2.3"
+      }
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "cve": "CVE-1900-00000",
+      "notes": [
+        {
+          "category": "description",
+          "text": "Synthetic fixture. This advisory describes a fictional product and a reserved placeholder CVE identifier. It exists only to exercise the validator."
+        }
+      ],
+      "product_status": {
+        "known_affected": ["EXAMPLEAPP-1.2.3"]
+      }
+    }
+  ]
+}

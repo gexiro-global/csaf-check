@@ -1,0 +1,12 @@
+{
+  "document": {
+    "category": "csaf_security_advisory",
+    "csaf_version": "2.0",
+    "title": "Synthetic fixture - deliberately missing the mandatory tracking object",
+    "publisher": {
+      "category": "vendor",
+      "name": "Example Widgets Ltd",
+      "namespace": "https://example.com"
+    }
+  }
+}

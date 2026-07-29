@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csaf-check"
+version = "0.1.0"
+description = "Validate CSAF 2.0 advisories from Python using the BSI csaf-validator-lib."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+authors = [
+  {name = "Gexiro Global Enterprises Ltd"}
+]
+keywords = ["csaf", "vex", "psirt", "advisory", "vulnerability-disclosure", "cra"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/gexiro-global/csaf-check"
+Repository = "https://github.com/gexiro-global/csaf-check"
+
+[project.scripts]
+csaf-check = "csaf_check.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "build>=1"]
+
+[tool.setuptools.packages.find]
+include = ["csaf_check*"]
+
+[tool.setuptools.package-data]
+csaf_check = ["js/*.js"]
