@@ -90,9 +90,12 @@ def validate(document: Dict[str, Any], timeout: int = 40) -> ValidationResult:
                  "or validate manually at https://secvisogram.github.io",
         )
 
-    workdir = tempfile.mkdtemp(prefix="csaf_check_")
-    docfile = os.path.join(workdir, "doc.json")
+    # Inside the try: creating the temp directory can fail (no space, read-only TMPDIR,
+    # permissions) and this function promises never to raise.
+    workdir = None
     try:
+        workdir = tempfile.mkdtemp(prefix="csaf_check_")
+        docfile = os.path.join(workdir, "doc.json")
         with open(docfile, "w", encoding="utf-8") as handle:
             json.dump(document, handle)
 
@@ -120,4 +123,5 @@ def validate(document: Dict[str, Any], timeout: int = 40) -> ValidationResult:
     except Exception as exc:  # pragma: no cover - defensive, must never propagate
         return ValidationResult(available=True, note=str(exc))
     finally:
-        shutil.rmtree(workdir, ignore_errors=True)
+        if workdir is not None:
+            shutil.rmtree(workdir, ignore_errors=True)
