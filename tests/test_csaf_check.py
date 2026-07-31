@@ -9,8 +9,6 @@ breaks silently if it is never tested on a machine that lacks the dependency.
 import json
 import pathlib
 
-import pytest
-
 from csaf_check import ValidationResult, validate, validator_available
 from csaf_check.cli import main
 

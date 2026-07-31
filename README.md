@@ -56,6 +56,10 @@ Without them, `csaf-check` reports `UNKNOWN - validator unavailable` and exits 0
 pipeline that has no Node without breaking it. Add `--require-validator` where the absence itself
 should be a failure.
 
+The validator is found either next to the installed package or under `node_modules` in your current
+working directory, so running `npm install` in your own project directory is enough - you do not
+have to install it into `site-packages`. `NODE_PATH` is honoured as well.
+
 ## CLI
 
 ```bash

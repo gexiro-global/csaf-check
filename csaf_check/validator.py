@@ -21,7 +21,7 @@ import tempfile
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
-_JS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "js", "csaf_validate.js")
+_JS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "js", "csaf_validate.cjs")
 
 
 @dataclass

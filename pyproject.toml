@@ -29,4 +29,4 @@ dev = ["pytest>=8", "build>=1"]
 include = ["csaf_check*"]
 
 [tool.setuptools.package-data]
-csaf_check = ["js/*.js"]
+csaf_check = ["js/*.cjs"]
