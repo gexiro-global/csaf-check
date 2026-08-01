@@ -9,6 +9,8 @@ breaks silently if it is never tested on a machine that lacks the dependency.
 import json
 import pathlib
 
+import pytest
+
 from csaf_check import ValidationResult, validate, validator_available
 from csaf_check import validator as validator_module
 from csaf_check.cli import main
@@ -91,6 +93,32 @@ def test_cli_is_lenient_by_default_and_strict_on_request(monkeypatch, capsys):
     doc = str(EXAMPLES / "advisory-minimal.json")
     assert main([doc]) == 0, "an unavailable validator must not fail a build by default"
     assert main([doc, "--require-validator"]) == 3, "--require-validator must fail with no verdict"
+
+
+def _conclusive(document):
+    """Run the real bridge, or None when the JS validator is not installed here."""
+    result = validate(document)
+    return result if result.conclusive else None
+
+
+@pytest.mark.skipif(
+    _conclusive({"document": {}}) is None,
+    reason="@secvisogram/csaf-validator-lib is not installed; the CI job that installs it covers this",
+)
+def test_real_validator_reaches_a_verdict_both_ways():
+    """Exercise the actual validation path end to end.
+
+    Every other test either forces the validator unavailable or accepts any ValidationResult,
+    so without this the whole validation path could break while the suite stayed green. It is
+    skipped when the JS dependency is absent and enforced by the CI job that installs it.
+    """
+    invalid = _conclusive(load("advisory-invalid.json"))
+    assert invalid is not None and invalid.is_valid is False
+    assert invalid.errors, "an invalid advisory must report which mandatory tests failed"
+
+    minimal = _conclusive(load("advisory-minimal.json"))
+    assert minimal is not None and minimal.is_valid is True
+    assert not minimal.errors
 
 
 def test_cli_json_output_is_machine_readable(capsys):

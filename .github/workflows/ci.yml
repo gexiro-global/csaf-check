@@ -42,3 +42,7 @@ jobs:
           if [ "$rc" -ne 1 ]; then echo "expected exit 1 (invalid), got $rc"; exit 1; fi
       - name: Report the verdict on the minimal example
         run: csaf-check examples/advisory-minimal.json --json
+      - name: Run the suite with the validator present
+        # The conclusive-verdict test is skipped when the JS dependency is absent, so this job
+        # is the only place it actually executes.
+        run: python -m pytest -q
