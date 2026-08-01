@@ -1,7 +1,8 @@
 # csaf-check
 
 [![CI](https://github.com/gexiro-global/csaf-check/actions/workflows/ci.yml/badge.svg)](https://github.com/gexiro-global/csaf-check/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](pyproject.toml)
+[![PyPI](https://img.shields.io/pypi/v/csaf-check.svg)](https://pypi.org/project/csaf-check/)
+[![Python](https://img.shields.io/pypi/pyversions/csaf-check.svg)](https://pypi.org/project/csaf-check/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 Validate CSAF 2.0 advisories from Python, using the same validator Secvisogram runs - and get an
@@ -41,12 +42,8 @@ and swallowing real failures along with the boring ones.
 
 ## Install
 
-Not on PyPI yet - install from source:
-
 ```bash
-git clone https://github.com/gexiro-global/csaf-check.git
-cd csaf-check
-pip install .
+pip install csaf-check
 ```
 
 That gives you the Python API and CLI. For actual validation you also need Node.js and the
