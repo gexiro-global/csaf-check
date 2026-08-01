@@ -41,8 +41,12 @@ and swallowing real failures along with the boring ones.
 
 ## Install
 
+Not on PyPI yet - install from source:
+
 ```bash
-pip install csaf-check
+git clone https://github.com/gexiro-global/csaf-check.git
+cd csaf-check
+pip install .
 ```
 
 That gives you the Python API and CLI. For actual validation you also need Node.js and the

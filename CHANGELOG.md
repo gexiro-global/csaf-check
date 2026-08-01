@@ -14,6 +14,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - CI covering both the degradation path and real validation with the library installed.
 
 ### Notes
+- Not published to PyPI yet; the README documents installing from source so it does not promise an
+  install path that does not exist.
 - Verified end to end against `@secvisogram/csaf-validator-lib` 2.1.1: the library exposes subpath
   exports only (no main entry), `validate` is the default export of `validate.js`, and the mandatory
   tests are individually-named exports of `mandatoryTests.js`.
