@@ -32,6 +32,27 @@ jobs:
         with:
           node-version: "20"
       - run: npm install @secvisogram/csaf-validator-lib
+      # Build and install the actual distribution rather than an editable checkout: an editable
+      # install reads straight from the source tree, so a packaging mistake - a missing data file,
+      # a wrong package-data glob - would not be caught here.
+      - run: python -m pip install build
+      - run: python -m build
+      - name: Install the built wheel into a clean venv
+        run: |
+          python -m venv /tmp/wheeltest
+          /tmp/wheeltest/bin/pip install --quiet dist/*.whl
+          /tmp/wheeltest/bin/csaf-check --help > /dev/null
+      - name: The bundled JS bridge must survive packaging
+        run: |
+          test -f "$(/tmp/wheeltest/bin/python -c 'import csaf_check,os;print(os.path.join(os.path.dirname(csaf_check.__file__),"js","csaf_validate.cjs"))')"
+      - name: Real validation using the installed wheel
+        run: |
+          set +e
+          /tmp/wheeltest/bin/csaf-check examples/advisory-invalid.json --require-validator
+          rc=$?
+          set -e
+          if [ "$rc" -ne 1 ]; then echo "expected exit 1 from the wheel, got $rc"; exit 1; fi
+          /tmp/wheeltest/bin/csaf-check examples/advisory-minimal.json --require-validator
       - run: python -m pip install -e ".[dev]"
       - name: A document missing mandatory fields must be rejected
         run: |
