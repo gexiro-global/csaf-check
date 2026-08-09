@@ -1,0 +1,4 @@
+csaf-check bridges to @secvisogram/csaf-validator-lib.
+  Upstream: https://github.com/secvisogram/csaf-validator-lib
+  License:  MIT (c) Secvisogram contributors
+csaf-check itself is licensed under Apache-2.0 (see LICENSE).

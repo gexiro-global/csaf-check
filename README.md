@@ -3,9 +3,9 @@
 [![CI](https://github.com/gexiro-global/csaf-check/actions/workflows/ci.yml/badge.svg)](https://github.com/gexiro-global/csaf-check/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/csaf-check.svg)](https://pypi.org/project/csaf-check/)
 [![Python](https://img.shields.io/pypi/pyversions/csaf-check.svg)](https://pypi.org/project/csaf-check/)
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-Validate CSAF 2.0 advisories from Python, using the same validator Secvisogram runs - and get an
+Validate CSAF 2.0 advisories from Python, using the same validator Secvisogram runs — and get an
 honest answer when that validator is not installed.
 
 ## The problem
@@ -14,7 +14,7 @@ If you publish security advisories as CSAF, you want schema validation in your r
 not in a browser tab at the end. The authoritative implementation of the CSAF 2.0 mandatory tests
 is [`@secvisogram/csaf-validator-lib`](https://github.com/secvisogram/csaf-validator-lib), which is
 JavaScript. Reimplementing the schema in Python means maintaining a second, subtly different
-opinion about what "valid" means - and yours will be the wrong one.
+opinion about what "valid" means — and yours will be the wrong one.
 
 So this package does not reimplement anything. It bridges to the real validator and handles the
 part that is annoying to get right: **what happens when the validator is not there.**
@@ -36,7 +36,7 @@ result.note        # why there is no verdict, when there isn't
 result.conclusive  # available and a verdict exists
 ```
 
-This matters because the alternative - a validator that throws on a missing optional dependency -
+This matters because the alternative — a validator that throws on a missing optional dependency —
 turns a quality gate into a hard dependency, and every caller ends up wrapping it in `try/except`
 and swallowing real failures along with the boring ones.
 
@@ -58,7 +58,7 @@ pipeline that has no Node without breaking it. Add `--require-validator` where t
 should be a failure.
 
 The validator is found either next to the installed package or under `node_modules` in your current
-working directory, so running `npm install` in your own project directory is enough - you do not
+working directory, so running `npm install` in your own project directory is enough — you do not
 have to install it into `site-packages`. `NODE_PATH` is honoured as well.
 
 ## CLI
@@ -70,8 +70,8 @@ csaf-check - < advisory.json                  # stdin
 csaf-check advisory.json --require-validator  # fail if no verdict is possible
 ```
 
-Exit codes: `0` valid (or inconclusive without `--require-validator`) - `1` invalid -
-`2` unreadable or malformed input - `3` no verdict possible and `--require-validator` was set.
+Exit codes: `0` valid (or inconclusive without `--require-validator`) — `1` invalid —
+`2` unreadable or malformed input — `3` no verdict possible and `--require-validator` was set.
 
 ## Python API
 
@@ -115,10 +115,14 @@ pip install -e ".[dev]"
 pytest -q
 ```
 
-The suite runs without Node.js on purpose - the degradation path is the part most likely to rot.
+The suite runs without Node.js on purpose — the degradation path is the part most likely to rot.
 
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE).
 
-Built and maintained by Gexiro Global Enterprises Ltd.
+Built and maintained by [Gexiro Global Enterprises Ltd](https://gexiro.com).
+
+Third-party attribution: see [NOTICE](NOTICE).
+
+Part of the [Gexiro open-source toolkit](https://github.com/gexiro-global).
