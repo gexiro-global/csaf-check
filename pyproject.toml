@@ -9,6 +9,7 @@ description = "Validate CSAF 2.0 advisories from Python using the BSI csaf-valid
 readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
 authors = [
   {name = "Gexiro Global Enterprises Ltd"}
 ]
@@ -29,4 +30,4 @@ dev = ["pytest>=8", "build>=1"]
 include = ["csaf_check*"]
 
 [tool.setuptools.package-data]
-csaf_check = ["js/*.cjs"]
+csaf_check = ["js/*.cjs", "py.typed"]

@@ -4,7 +4,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-- No unreleased changes.
+- Ship the inline type-information marker and explicit license-file metadata.
 
 ## [0.1.0] - 2026-08-01
 
