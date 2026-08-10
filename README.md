@@ -64,10 +64,10 @@ have to install it into `site-packages`. `NODE_PATH` is honoured as well.
 ## CLI
 
 ```bash
-csaf-check advisory.json                      # human-readable verdict
-csaf-check advisory.json --json               # machine-readable
-csaf-check - < advisory.json                  # stdin
-csaf-check advisory.json --require-validator  # fail if no verdict is possible
+csaf-check examples/advisory-minimal.json                      # human-readable verdict
+csaf-check examples/advisory-minimal.json --json               # machine-readable
+csaf-check - < examples/advisory-minimal.json                  # stdin
+csaf-check examples/advisory-minimal.json --require-validator  # fail if no verdict is possible
 ```
 
 Exit codes: `0` valid (or inconclusive without `--require-validator`) — `1` invalid —
