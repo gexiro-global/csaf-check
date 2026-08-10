@@ -53,9 +53,10 @@ validator library:
 npm install @secvisogram/csaf-validator-lib
 ```
 
-Without them, `csaf-check` reports `UNKNOWN - validator unavailable` and exits 0, so it can sit in a
-pipeline that has no Node without breaking it. Add `--require-validator` where the absence itself
-should be a failure.
+The **default is intentionally lenient**: without the JavaScript validator, `csaf-check` prints
+`UNKNOWN - validator unavailable` and exits `0`, so CI environments without Node or the validator
+do not break. Strict handling is an explicit opt-in: add `--require-validator` to make validator
+unavailability exit `3`.
 
 The validator is found either next to the installed package or under `node_modules` in your current
 working directory, so running `npm install` in your own project directory is enough — you do not
