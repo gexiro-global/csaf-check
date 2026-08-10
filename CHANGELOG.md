@@ -4,6 +4,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+- No unreleased changes.
+
+## [0.1.1] - 2026-08-10
+
 - Ship the inline type-information marker and explicit license-file metadata.
 - Bound build and development dependencies to tested next-major ceilings and add complete
   license, audience, Python, security-topic, and typed-package classifiers.

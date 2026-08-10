@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "csaf-check"
-version = "0.1.0"
+version = "0.1.1"
 description = "Validate CSAF 2.0 advisories from Python using the BSI csaf-validator-lib."
 readme = "README.md"
 requires-python = ">=3.9"
