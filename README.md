@@ -5,6 +5,8 @@
 [![Python](https://img.shields.io/pypi/pyversions/csaf-check.svg)](https://pypi.org/project/csaf-check/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
+[Security and trust evidence](docs/SECURITY-TRUST.md) documents the project's policies and automated checks. No certification or badge level is claimed.
+
 Validate CSAF 2.0 advisories from Python, using the same validator Secvisogram runs — and get an
 honest answer when that validator is not installed.
 
