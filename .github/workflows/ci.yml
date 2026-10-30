@@ -27,6 +27,10 @@ jobs:
   test-with-validator:
     name: Real validation (validator installed)
     runs-on: ubuntu-latest
+    env:
+      # The validator is installed from ci/validator/package-lock.json, outside the repo root,
+      # so the bridge finds it through NODE_PATH (see csaf_check/js/csaf_validate.cjs).
+      NODE_PATH: ${{ github.workspace }}/ci/validator/node_modules
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -35,7 +39,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20"
-      - run: npm install --ignore-scripts --no-audit --no-fund @secvisogram/csaf-validator-lib@2.1.1
+      - run: npm ci --ignore-scripts --no-audit --no-fund --prefix ci/validator
       # Build and install the actual distribution rather than an editable checkout: an editable
       # install reads straight from the source tree, so a packaging mistake - a missing data file,
       # a wrong package-data glob - would not be caught here.
