@@ -3,6 +3,6 @@
   "private": true,
   "description": "Pinned CSAF validator used by the test-with-validator CI job. Not part of the Python package.",
   "dependencies": {
-    "@secvisogram/csaf-validator-lib": "2.1.1"
+    "@secvisogram/csaf-validator-lib": "3.0.1"
   }
 }
