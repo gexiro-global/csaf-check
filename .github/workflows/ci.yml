@@ -35,7 +35,7 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "20"
-      - run: npm install @secvisogram/csaf-validator-lib@2.1.1
+      - run: npm install --ignore-scripts --no-audit --no-fund @secvisogram/csaf-validator-lib@2.1.1
       # Build and install the actual distribution rather than an editable checkout: an editable
       # install reads straight from the source tree, so a packaging mistake - a missing data file,
       # a wrong package-data glob - would not be caught here.
